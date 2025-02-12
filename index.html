@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emilish - Handmade Knitting</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="font-poppins bg-gray-50">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="w-40">
+                    <img src="images/Logo.jpg" alt="Emilish Logo" class="h-16 object-contain">
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-pink-600 transition-all duration-300 hover:scale-105">Ana Sayfa</a>
+                    <a href="#products" class="text-gray-700 hover:text-pink-600 transition-all duration-300 hover:scale-105">Ürünler</a>
+                    <a href="#about" class="text-gray-700 hover:text-pink-600 transition-all duration-300 hover:scale-105">Hakkımızda</a>
+                    <a href="#contact" class="text-gray-700 hover:text-pink-600 transition-all duration-300 hover:scale-105">İletişim</a>
+                    <a href="admin.html" class="px-6 py-2 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300">Yönetici</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700 hover:text-pink-600 transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-pink-500/90 to-purple-600/90 z-10"></div>
+        <div class="absolute inset-0 bg-[url('path/to/pattern.png')] opacity-10 z-0"></div>
+        <div class="container mx-auto px-4 text-center relative z-20">
+            <h1 class="font-playfair text-6xl md:text-8xl font-bold text-white mb-6 opacity-0 animate-fade-in">
+                El Yapımı Örgü
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto font-light opacity-0 animate-fade-in-delay">
+                Her ilmekte sevgi, her üründe özen. Emilish ile evinize sıcaklık katın.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 animate-fade-in-delay-2">
+                <a href="#products" class="px-8 py-4 bg-white text-pink-600 rounded-full text-lg font-semibold hover:bg-pink-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    Koleksiyonu Keşfet
+                </a>
+                <a href="#about" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full text-lg font-semibold hover:bg-white/10 transition-all duration-300">
+                    Daha Fazla Bilgi
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+                        El Emeği ve Sevgiyle<br>
+                        <span class="text-pink-600">Özenle Örüyoruz</span>
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        2020'den beri, her bir ürünümüzü sizler için özenle tasarlıyor ve el emeğiyle örüyoruz. Bebekler için sevimli kıyafetlerden, eviniz için şık aksesuarlara kadar geniş ürün yelpazemizle hayatınıza renk katıyoruz.
+                    </p>
+                    <div class="grid grid-cols-3 gap-6 pt-6">
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-pink-600 mb-2">500+</h3>
+                            <p class="text-gray-600">Mutlu Müşteri</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-pink-600 mb-2">1000+</h3>
+                            <p class="text-gray-600">Ürün</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-pink-600 mb-2">3</h3>
+                            <p class="text-gray-600">Yıllık Deneyim</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <img src="path/to/about1.jpg" alt="El örgüsü ürünler" class="w-full h-64 object-cover rounded-2xl shadow-lg transform translate-y-8">
+                        <img src="path/to/about2.jpg" alt="Örgü detayı" class="w-full h-48 object-cover rounded-2xl shadow-lg">
+                    </div>
+                    <div class="space-y-4">
+                        <img src="path/to/about3.jpg" alt="Örme süreci" class="w-full h-48 object-cover rounded-2xl shadow-lg">
+                        <img src="path/to/about4.jpg" alt="Ürün detayı" class="w-full h-64 object-cover rounded-2xl shadow-lg transform -translate-y-8">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="products" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gray-800 mb-6">Öne Çıkan Ürünlerimiz</h2>
+                <p class="text-gray-600 text-lg">El emeği ile üretilen, özenle seçilmiş en popüler ürünlerimizi keşfedin.</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="flex flex-col md:flex-row justify-center gap-4 mb-12">
+                <div class="relative">
+                    <input type="text" id="searchProduct" placeholder="Ürün Ara..." 
+                        class="w-full md:w-80 px-6 py-3 bg-white border border-gray-200 rounded-full focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none shadow-sm">
+                    <svg class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+                <select id="categoryFilter" 
+                    class="w-full md:w-60 px-6 py-3 bg-white border border-gray-200 rounded-full focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none shadow-sm appearance-none cursor-pointer">
+                    <option value="">Tüm Kategoriler</option>
+                    <option value="bebek">Bebek Ürünleri</option>
+                    <option value="ev">Ev Dekorasyonu</option>
+                    <option value="giyim">Giyim</option>
+                    <option value="aksesuar">Aksesuarlar</option>
+                </select>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="productsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Products will be added here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('path/to/pattern.png')] opacity-5"></div>
+        <div class="container mx-auto px-4 max-w-6xl relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <h2 class="font-playfair text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+                        Bize Ulaşın
+                    </h2>
+                    <p class="text-gray-600 text-lg">
+                        Özel siparişleriniz veya sorularınız için bizimle iletişime geçebilirsiniz.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">E-posta</h3>
+                                <p class="text-gray-600">info@emilish.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-800">Telefon</h3>
+                                <p class="text-gray-600">+90 555 123 4567</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Adınız</label>
+                            <input type="text" required
+                                class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all duration-300">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">E-posta</label>
+                            <input type="email" required
+                                class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all duration-300">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Mesajınız</label>
+                            <textarea required rows="4"
+                                class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all duration-300"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full px-8 py-4 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-lg hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300">
+                            Mesaj Gönder
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="space-y-4">
+                    <img src="images/Logo.jpg" alt="Emilish Logo" class="h-16">
+                    <p class="text-gray-400">El emeği ile üretilen örgü ürünleri.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Hızlı Erişim</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">Ana Sayfa</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">Ürünler</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">Hakkımızda</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-pink-500 transition-colors duration-300">İletişim</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">İletişim</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>info@emilish.com</li>
+                        <li>+90 555 123 4567</li>
+                        <li>İstanbul, Türkiye</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-4">Sosyal Medya</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Emilish - El Yapımı Örgü. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="bg-white rounded-2xl max-w-3xl mx-auto mt-20 p-8 relative">
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl close">&times;</button>
+            <div id="productDetails" class="space-y-4">
+                <!-- Product details will be added here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
