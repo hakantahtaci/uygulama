@@ -2,29 +2,47 @@
 const sampleProducts = [
     {
         id: 1,
-        name: "El Örgüsü Bebek Battaniyesi",
-        category: "bebek",
-        price: "299",
-        description: "Saf pamuktan üretilen, yumuşacık ve sıcacık bebek battaniyesi. Her bir ilmek özenle örülmüştür.",
+        name: "Granny Square Bag, Crochet Handle Bag",
+        category: "aksesuar",
+        price: "2100",
+        description: "El yapımı örgü çanta, renkli granny square desenleri ile modern ve vintage tarzı bir araya getiriyor.",
         image: "products/img/Emine 1.png",
         etsyLink: "https://www.etsy.com/shop/EmilishHandmade"
     },
     {
         id: 2,
-        name: "Dekoratif Örgü Yastık",
-        category: "ev",
-        price: "249",
-        description: "Modern tasarımlı, el örgüsü dekoratif yastık. Evinize şık ve sıcak bir dokunuş katacak.",
+        name: "Baby cardigan, thick cardigan, Baby Gift",
+        category: "bebek",
+        price: "2750",
+        description: "Kalın ve sıcak tutan bebek hırkası, mavi renk, ponponlu kapüşonlu model.",
         image: "products/img/Emine 8.png",
         etsyLink: "https://www.etsy.com/shop/EmilishHandmade"
     },
     {
         id: 3,
-        name: "El Örgüsü Bebek Hırkası",
+        name: "Baby cardigan, Thick Cardigan, Baby Gift",
         category: "bebek",
-        price: "349",
-        description: "%100 organik pamuktan üretilen, narin ve şık bebek hırkası. Özel günler için ideal.",
+        price: "2750",
+        description: "Renkli çizgili, kapüşonlu bebek hırkası, yumuşak ve sıcak tutan özel ipten üretilmiştir.",
         image: "products/img/Emine 19.png",
+        etsyLink: "https://www.etsy.com/shop/EmilishHandmade"
+    },
+    {
+        id: 4,
+        name: "Baby cardigan, Thick Cardigan, Baby Gift",
+        category: "bebek",
+        price: "2750",
+        description: "Pembe renkli, ponponlu kapüşonlu bebek hırkası, özel günler için ideal.",
+        image: "products/img/Emine 20.png",
+        etsyLink: "https://www.etsy.com/shop/EmilishHandmade"
+    },
+    {
+        id: 5,
+        name: "Baby cardigan, Thick Cardigan, Baby Gift",
+        category: "bebek",
+        price: "2750",
+        description: "Lacivert renkli, ponponlu kapüşonlu bebek hırkası, kış mevsimi için ideal.",
+        image: "products/img/Emine 13.png",
         etsyLink: "https://www.etsy.com/shop/EmilishHandmade"
     }
 ];
