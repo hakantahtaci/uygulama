@@ -1,3 +1,39 @@
+// Sample Products
+const sampleProducts = [
+    {
+        id: 1,
+        name: "El Örgüsü Bebek Battaniyesi",
+        category: "bebek",
+        price: "299",
+        description: "Saf pamuktan üretilen, yumuşacık ve sıcacık bebek battaniyesi. Her bir ilmek özenle örülmüştür.",
+        image: "products/img/Emine 1.png",
+        etsyLink: "https://www.etsy.com/shop/EmilishHandmade"
+    },
+    {
+        id: 2,
+        name: "Dekoratif Örgü Yastık",
+        category: "ev",
+        price: "249",
+        description: "Modern tasarımlı, el örgüsü dekoratif yastık. Evinize şık ve sıcak bir dokunuş katacak.",
+        image: "products/img/Emine 8.png",
+        etsyLink: "https://www.etsy.com/shop/EmilishHandmade"
+    },
+    {
+        id: 3,
+        name: "El Örgüsü Bebek Hırkası",
+        category: "bebek",
+        price: "349",
+        description: "%100 organik pamuktan üretilen, narin ve şık bebek hırkası. Özel günler için ideal.",
+        image: "products/img/Emine 19.png",
+        etsyLink: "https://www.etsy.com/shop/EmilishHandmade"
+    }
+];
+
+// Initialize products with sample products if empty
+if (!localStorage.getItem('products')) {
+    localStorage.setItem('products', JSON.stringify(sampleProducts));
+}
+
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -110,9 +146,17 @@ function displayProducts(filteredProducts = products) {
                     <span class="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm">
                         ${product.category}
                     </span>
-                    <button class="px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors duration-300 view-details">
-                        Detayları Gör
-                    </button>
+                    <div class="flex gap-2">
+                        <button class="px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors duration-300 view-details">
+                            Detayları Gör
+                        </button>
+                        <a href="${product.etsyLink}" target="_blank" class="px-4 py-2 bg-[#F1641E] text-white rounded-lg hover:bg-[#E55B18] transition-colors duration-300 flex items-center gap-2">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1.43 17.267c-.326.068-.657.102-.99.102-1.253 0-2.4-.437-3.307-1.166-.896-.722-1.447-1.707-1.447-2.76 0-.745.268-1.445.756-2.063.487-.617 1.16-1.087 1.946-1.356.786-.27 1.634-.338 2.457-.197.823.14 1.576.47 2.184.956.607.485 1.026 1.126 1.21 1.852.183.726.127 1.5-.162 2.19-.29.69-.778 1.265-1.417 1.664-.64.4-1.41.646-2.23.778zm5.903-5.352c-.327.068-.657.102-.99.102-1.253 0-2.4-.437-3.307-1.166-.896-.722-1.447-1.707-1.447-2.76 0-.745.268-1.445.756-2.063.487-.617 1.16-1.087 1.946-1.356.786-.27 1.634-.338 2.457-.197.823.14 1.576.47 2.184.956.607.485 1.026 1.126 1.21 1.852.183.726.127 1.5-.162 2.19-.29.69-.778 1.265-1.417 1.664-.64.4-1.41.646-2.23.778z"/>
+                            </svg>
+                            Etsy'de Gör
+                        </a>
+                    </div>
                 </div>
             </div>
         `;
@@ -171,9 +215,15 @@ function showProductDetails(product) {
                 <p class="text-gray-600 leading-relaxed">
                     ${product.description}
                 </p>
-                <button class="w-full px-8 py-4 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-xl hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300">
-                    Sipariş Ver
-                </button>
+                <div class="flex gap-4">
+                    <a href="${product.etsyLink}" target="_blank" 
+                        class="flex-1 px-8 py-4 bg-[#F1641E] text-white rounded-xl hover:bg-[#E55B18] hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm1.43 17.267c-.326.068-.657.102-.99.102-1.253 0-2.4-.437-3.307-1.166-.896-.722-1.447-1.707-1.447-2.76 0-.745.268-1.445.756-2.063.487-.617 1.16-1.087 1.946-1.356.786-.27 1.634-.338 2.457-.197.823.14 1.576.47 2.184.956.607.485 1.026 1.126 1.21 1.852.183.726.127 1.5-.162 2.19-.29.69-.778 1.265-1.417 1.664-.64.4-1.41.646-2.23.778zm5.903-5.352c-.327.068-.657.102-.99.102-1.253 0-2.4-.437-3.307-1.166-.896-.722-1.447-1.707-1.447-2.76 0-.745.268-1.445.756-2.063.487-.617 1.16-1.087 1.946-1.356.786-.27 1.634-.338 2.457-.197.823.14 1.576.47 2.184.956.607.485 1.026 1.126 1.21 1.852.183.726.127 1.5-.162 2.19-.29.69-.778 1.265-1.417 1.664-.64.4-1.41.646-2.23.778z"/>
+                        </svg>
+                        Etsy'de Satın Al
+                    </a>
+                </div>
             </div>
         </div>
     `;
