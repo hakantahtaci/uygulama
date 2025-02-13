@@ -339,6 +339,211 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(255, 107, 107, 0.2);
         }
+
+        /* Dropdown Menu Styles */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-radius: 1rem;
+            padding: 1rem;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(255, 107, 107, 0.1);
+            border: 2px solid rgba(255, 180, 180, 0.1);
+        }
+
+        .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid rgba(255, 255, 255, 0.95);
+        }
+
+        .dropdown-container {
+            position: relative;
+        }
+
+        .dropdown-container:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            color: #4B5563;
+            transition: all 0.3s ease;
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(120deg, var(--primary-light), var(--accent));
+            color: var(--primary-dark);
+            transform: translateX(5px);
+        }
+
+        .dropdown-item svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.75rem;
+            opacity: 0.7;
+        }
+
+        /* Mobil Menü Stilleri */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 50;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 49;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobil Responsive İyileştirmeleri */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+                margin-top: 2rem; /* Başlıklar için üst boşluk ekledim */
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .product-card-hover {
+                margin: 0.5rem;
+            }
+
+            .product-card-hover .product-image {
+                height: 300px;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            /* Logo için mobil düzenlemeler */
+            .w-48 {
+                width: 8rem; /* 128px */
+            }
+
+            .h-16 {
+                height: 3rem; /* 48px */
+            }
+
+            /* Mobil menüdeki logo */
+            .mobile-menu .h-12 {
+                height: 2.5rem; /* 40px */
+            }
+
+            /* Navbar padding ve margin düzenlemesi */
+            .py-3 {
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+
+            /* Navbar'ın üstte sabit kalması için z-index ve pozisyon ayarları */
+            nav.fixed {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 50;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(8px);
+            }
+
+            /* Hero section için padding ayarı */
+            #home {
+                padding-top: 5rem; /* Navbar'ın altında kalmaması için padding ekledim */
+            }
+
+            /* Mobil menü için ek düzenlemeler */
+            .mobile-menu {
+                padding-top: 4rem; /* Üst kısımda boşluk bırakma */
+            }
+        }
+
+        /* Mobil için Dropdown Menu İyileştirmeleri */
+        @media (max-width: 768px) {
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                background: transparent;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                margin: 1rem 0;
+                display: none;
+            }
+
+            .dropdown-menu::before {
+                display: none;
+            }
+
+            .dropdown-container:hover .dropdown-menu {
+                transform: none;
+            }
+
+            .dropdown-item {
+                padding: 0.5rem 1rem;
+                margin: 0.25rem 0;
+                background: rgba(255, 255, 255, 0.5);
+            }
+        }
     </style>
 </head>
 <body class="font-poppins bg-pattern">
@@ -351,7 +556,37 @@
                 </div>
                 <div class="hidden md:flex items-center space-x-12">
                     <a href="#home" class="nav-link relative text-gray-700 hover:text-primary text-lg font-medium transition-all duration-300 hover:scale-110 px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-300 after:to-primary after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full before:content-['🌸'] before:absolute before:-top-4 before:left-1/2 before:transform before:-translate-x-1/2 before:opacity-0 hover:before:opacity-100 before:transition-all before:duration-300">Ana Sayfa</a>
-                    <a href="#products" class="nav-link relative text-gray-700 hover:text-primary text-lg font-medium transition-all duration-300 hover:scale-110 px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-300 after:to-primary after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full before:content-['✨'] before:absolute before:-top-4 before:left-1/2 before:transform before:-translate-x-1/2 before:opacity-0 hover:before:opacity-100 before:transition-all before:duration-300">Ürünler</a>
+                    
+                    <div class="dropdown-container">
+                        <a href="#products" class="nav-link relative text-gray-700 hover:text-primary text-lg font-medium transition-all duration-300 hover:scale-110 px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-300 after:to-primary after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full before:content-['✨'] before:absolute before:-top-4 before:left-1/2 before:transform before:-translate-x-1/2 before:opacity-0 hover:before:opacity-100 before:transition-all before:duration-300">Ürünler</a>
+                        <div class="dropdown-menu">
+                            <a href="#products" class="dropdown-item" onclick="document.getElementById('categoryFilter').value='çanta';filterProducts()">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                </svg>
+                                Çanta
+                            </a>
+                            <a href="#products" class="dropdown-item" onclick="document.getElementById('categoryFilter').value='cüzdan';filterProducts()">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                                Cüzdan
+                            </a>
+                            <a href="#products" class="dropdown-item" onclick="document.getElementById('categoryFilter').value='örtü';filterProducts()">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                                </svg>
+                                Masa-Sehpa Örtüleri
+                            </a>
+                            <a href="#products" class="dropdown-item" onclick="document.getElementById('categoryFilter').value='bebek';filterProducts()">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                </svg>
+                                Bebekler için
+                            </a>
+                        </div>
+                    </div>
+                    
                     <a href="#about" class="nav-link relative text-gray-700 hover:text-primary text-lg font-medium transition-all duration-300 hover:scale-110 px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-300 after:to-primary after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full before:content-['💝'] before:absolute before:-top-4 before:left-1/2 before:transform before:-translate-x-1/2 before:opacity-0 hover:before:opacity-100 before:transition-all before:duration-300">Hakkımızda</a>
                     <a href="#contact" class="nav-link relative text-gray-700 hover:text-primary text-lg font-medium transition-all duration-300 hover:scale-110 px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-300 after:to-primary after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full before:content-['💌'] before:absolute before:-top-4 before:left-1/2 before:transform before:-translate-x-1/2 before:opacity-0 hover:before:opacity-100 before:transition-all before:duration-300">İletişim</a>
                 </div>
@@ -422,10 +657,10 @@
                 <select id="categoryFilter" 
                     class="filter-select w-full md:w-60 px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-sm backdrop-blur-sm appearance-none cursor-pointer">
                     <option value="">Tüm Kategoriler</option>
-                    <option value="bebek">Bebek Ürünleri</option>
-                    <option value="ev">Ev Dekorasyonu</option>
-                    <option value="giyim">Giyim</option>
-                    <option value="aksesuar">Aksesuarlar</option>
+                    <option value="çanta">Çanta</option>
+                    <option value="cüzdan">Cüzdan</option>
+                    <option value="örtü">Masa-Sehpa Örtüleri</option>
+                    <option value="bebek">Bebekler için</option>
                 </select>
             </div>
 
@@ -441,6 +676,7 @@
                                 <span class="product-category px-4 py-2 category-pill rounded-full text-sm font-medium text-primary shadow-lg backdrop-blur-sm"></span>
                                 <div class="product-status px-4 py-2 bg-green-500/90 backdrop-blur-sm rounded-full text-sm font-medium text-white shadow-lg hidden"></div>
                             </div>
+                            <div class="product-colors absolute bottom-4 left-4 flex gap-2 opacity-0 transition-opacity duration-300"></div>
                         </div>
                         <div class="p-6 bg-gradient-to-b from-transparent to-pink-light/20">
                             <h3 class="product-name text-xl font-semibold text-gray-800 mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-1"></h3>
@@ -473,216 +709,210 @@
                 id: 1,
                 name: "Bebek Battaniyesi",
                 description: "El yapımı, yumuşak ve sıcak bebek battaniyesi. %100 pamuk ipten üretilmiştir.",
-                category: "Bebek",
-                image: "products/img/product1.png",
+                category: "bebek",
+                image: "products/img/product58.jpg",
                 rating: 4.8,
                 status: "Stokta"
             },
             {
                 id: 2,
-                name: "Dekoratif Yastık",
-                description: "Modern tasarımlı el örgüsü dekoratif yastık. Evinize şıklık katacak.",
-                category: "Ev",
+                name: "Dekoratif Runner",
+                description: "Modern tasarımlı el örgüsü runner. Evinize şıklık katacak.",
+                category: "örtü",
                 image: "products/img/product2.png",
-                rating: 4.5
-            },
-            {
-                id: 3,
-                name: "El Örgüsü Bere",
-                description: "Kış ayları için ideal, şık ve sıcak tutan el örgüsü bere.",
-                category: "Giyim",
-                image: "products/img/product3.png",
-                rating: 4.9
+                rating: 4.7
             },
             {
                 id: 4,
-                name: "Bebek Hırkası",
-                description: "Yumuşak ve konforlu bebek hırkası. Özel tasarım.",
-                category: "Bebek",
+                name: "Örgü Çanta",
+                description: "El yapımı şık örgü çanta. Günlük kullanım için ideal.",
+                category: "çanta",
                 image: "products/img/product4.png",
-                rating: 4.7
+                rating: 4.6
             },
             {
                 id: 5,
                 name: "Örgü Çanta",
-                description: "El yapımı şık örgü çanta. Günlük kullanım için ideal.",
-                category: "Aksesuar",
+                description: "Modern tasarımlı el örgüsü çanta. Şık ve kullanışlı.",
+                category: "çanta",
                 image: "products/img/product5.png",
-                rating: 4.6
-            },
-            {
-                id: 6,
-                name: "Bebek Patik",
-                description: "Sevimli ve sıcak tutan bebek patikleri. %100 pamuk.",
-                category: "Bebek",
-                image: "products/img/product6.png",
-                rating: 4.8
-            },
-            {
-                id: 7,
-                name: "Dekoratif Runner",
-                description: "El örgüsü masa örtüsü. Modern tasarım.",
-                category: "Ev",
-                image: "products/img/product7.png",
-                rating: 4.4
-            },
-            {
-                id: 8,
-                name: "Örgü Atkı",
-                description: "Yumuşak ve şık tasarımlı atkı. Kış için ideal.",
-                category: "Giyim",
-                image: "products/img/product8.png",
                 rating: 4.7
             },
             {
-                id: 9,
-                name: "Bebek Battaniyesi",
-                description: "Renkli ve sevimli bebek battaniyesi. Özel tasarım.",
-                category: "Bebek",
-                image: "products/img/product9.png",
-                rating: 4.9
-            },
-            {
-                id: 10,
-                name: "Örgü Sepet",
-                description: "Dekoratif örgü sepet. Ev düzeni için ideal.",
-                category: "Ev",
-                image: "products/img/product10.png",
+                id: 6,
+                name: "Örgü Cüzdan",
+                description: "El yapımı örgü cüzdan. İnce detaylarla işlenmiş.",
+                category: "cüzdan",
+                image: "products/img/product6.png",
                 rating: 4.5
             },
             {
+                id: 7,
+                name: "Masa Örtüsü",
+                description: "Zarif desenli el örgüsü masa örtüsü.",
+                category: "örtü",
+                image: "products/img/product7.png",
+                rating: 4.8
+            },
+            {
+                id: 8,
+                name: "Örgü Çanta",
+                description: "El yapımı modern örgü çanta. Günlük kullanım için ideal.",
+                category: "çanta",
+                image: "products/img/product8.png",
+                rating: 4.6
+            },
+            {
+                id: 9,
+                name: "Örgü Cüzdan",
+                description: "Şık tasarımlı el örgüsü cüzdan.",
+                category: "cüzdan",
+                image: "products/img/product9.png",
+                rating: 4.5
+            },
+            {
+                id: 10,
+                name: "Dekoratif Runner",
+                description: "Modern çizgili el örgüsü runner. İki farklı renk seçeneği.",
+                category: "örtü",
+                image: "products/img/product10.png",
+                rating: 4.7,
+                colors: [
+                    {
+                        name: "Siyah",
+                        image: "products/img/product10.png"
+                    },
+                    {
+                        name: "Toprak Tonu",
+                        image: "products/img/product2.png"
+                    }
+                ]
+            },
+            {
                 id: 11,
-                name: "Çocuk Kazağı",
-                description: "Renkli ve sevimli çocuk kazağı. Kış için ideal.",
-                category: "Giyim",
+                name: "Örgü Çanta",
+                description: "El yapımı vintage stil örgü çanta.",
+                category: "çanta",
                 image: "products/img/product11.png",
                 rating: 4.6
             },
             {
                 id: 12,
-                name: "Örgü Şal",
-                description: "Zarif ve şık tasarımlı örgü şal.",
-                category: "Aksesuar",
+                name: "Örgü Çanta",
+                description: "Modern desenli el örgüsü çanta.",
+                category: "çanta",
                 image: "products/img/product12.png",
-                rating: 4.8
+                rating: 4.7
             },
             {
                 id: 13,
                 name: "Bebek Takımı",
                 description: "El örgüsü bebek takımı. Şık ve rahat.",
-                category: "Bebek",
+                category: "bebek",
                 image: "products/img/product13.png",
-                rating: 4.7
+                rating: 4.8
             },
             {
                 id: 14,
-                name: "Dekoratif Puf",
-                description: "El örgüsü modern puf. Evinize şıklık katacak.",
-                category: "Ev",
+                name: "Örgü Cüzdan",
+                description: "Kompakt tasarımlı el örgüsü cüzdan.",
+                category: "cüzdan",
                 image: "products/img/product14.png",
-                rating: 4.6
-            },
-            {
-                id: 15,
-                name: "Örgü Eldiven",
-                description: "Sıcak tutan şık eldiven. Kış için ideal.",
-                category: "Aksesuar",
-                image: "products/img/product15.png",
                 rating: 4.5
             },
             {
-                id: 16,
-                name: "Bebek Elbisesi",
-                description: "El örgüsü bebek elbisesi. Özel tasarım.",
-                category: "Bebek",
-                image: "products/img/product16.png",
-                rating: 4.9
+                id: 15,
+                name: "Örgü Çanta",
+                description: "El yapımı modern örgü çanta.",
+                category: "çanta",
+                image: "products/img/product15.png",
+                rating: 4.6
             },
             {
-                id: 17,
-                name: "Dekoratif Örtü",
-                description: "Modern tasarımlı örtü. Evinize şıklık katacak.",
-                category: "Ev",
-                image: "products/img/product17.png",
+                id: 16,
+                name: "Örgü Çanta",
+                description: "Bohem stil el örgüsü çanta.",
+                category: "çanta",
+                image: "products/img/product16.png",
                 rating: 4.7
             },
             {
-                id: 18,
-                name: "Örgü Çorap",
-                description: "Sıcak tutan el örgüsü çorap. Kış için ideal.",
-                category: "Giyim",
-                image: "products/img/product18.png",
-                rating: 4.6
+                id: 17,
+                name: "Sehpa Örtüsü",
+                description: "Modern tasarımlı örtü. Evinize şıklık katacak.",
+                category: "örtü",
+                image: "products/img/product17.png",
+                rating: 4.8
             },
             {
                 id: 19,
                 name: "Bebek Yeleği",
                 description: "El örgüsü bebek yeleği. Şık ve rahat.",
-                category: "Bebek",
+                category: "bebek",
                 image: "products/img/product19.png",
-                rating: 4.8
-            },
-            {
-                id: 20,
-                name: "Dekoratif Kırlent",
-                description: "El örgüsü kırlent. Modern tasarım.",
-                category: "Ev",
-                image: "products/img/product20.png",
-                rating: 4.5
-            },
-            {
-                id: 21,
-                name: "Örgü Bere Takımı",
-                description: "Atkı ve eldiven ile takım. Kış için ideal.",
-                category: "Giyim",
-                image: "products/img/product21.png",
                 rating: 4.7
             },
             {
-                id: 22,
-                name: "Bebek Tulumu",
-                description: "El örgüsü bebek tulumu. Özel tasarım.",
-                category: "Bebek",
-                image: "products/img/product22.png",
-                rating: 4.9
-            },
-            {
-                id: 23,
-                name: "Dekoratif Sepet Set",
-                description: "3'lü dekoratif sepet seti. Ev düzeni için ideal.",
-                category: "Ev",
-                image: "products/img/product23.png",
+                id: 20,
+                name: "Örgü Çanta",
+                description: "El yapımı klasik örgü çanta.",
+                category: "çanta",
+                image: "products/img/product20.png",
                 rating: 4.6
             },
             {
-                id: 24,
-                name: "Örgü Boyunluk",
-                description: "Şık ve sıcak tutan boyunluk. Kış için ideal.",
-                category: "Aksesuar",
-                image: "products/img/product24.png",
+                id: 21,
+                name: "Masa Örtüsü",
+                description: "Dantel detaylı el örgüsü masa örtüsü.",
+                category: "örtü",
+                image: "products/img/product21.png",
                 rating: 4.8
+            },
+            {
+                id: 22,
+                name: "Örgü Çanta",
+                description: "Modern desenli el örgüsü çanta.",
+                category: "çanta",
+                image: "products/img/product22.png",
+                rating: 4.7
+            },
+            {
+                id: 23,
+                name: "Çanta Set",
+                description: "3'lü dekoratif çanta seti. Günlük kullanım için ideal.",
+                category: "çanta",
+                image: "products/img/product23.png",
+                rating: 4.8
+            },
+            {
+                id: 24,
+                name: "Örgü Çanta",
+                description: "El yapımı vintage stil örgü çanta.",
+                category: "çanta",
+                image: "products/img/product24.png",
+                rating: 4.6
             },
             {
                 id: 25,
                 name: "Bebek Şapkası",
                 description: "El örgüsü bebek şapkası. Sevimli tasarım.",
-                category: "Bebek",
+                category: "bebek",
                 image: "products/img/product25.png",
                 rating: 4.7
             },
             {
                 id: 26,
-                name: "Dekoratif Tabure",
-                description: "El örgüsü tabure kılıfı. Modern tasarım.",
-                category: "Ev",
+                name: "Örgü Cüzdan",
+                description: "Modern tasarımlı el örgüsü cüzdan.",
+                category: "cüzdan",
                 image: "products/img/product26.png",
                 rating: 4.5
             },
             {
                 id: 27,
-                name: "Örgü Yelek",
-                description: "El örgüsü yelek. Şık ve rahat.",
-                category: "Giyim",
+                name: "Örgü Çanta",
+                description: "El yapımı şık örgü çanta.",
+                category: "çanta",
                 image: "products/img/product27.png",
                 rating: 4.6
             },
@@ -690,23 +920,23 @@
                 id: 28,
                 name: "Bebek Pantolon",
                 description: "El örgüsü bebek pantolonu. Özel tasarım.",
-                category: "Bebek",
+                category: "bebek",
                 image: "products/img/product28.png",
                 rating: 4.8
             },
             {
                 id: 29,
-                name: "Dekoratif Mumluk",
-                description: "El örgüsü mumluk kılıfı. Modern tasarım.",
-                category: "Ev",
+                name: "Örgü Çanta",
+                description: "Modern desenli el örgüsü çanta.",
+                category: "çanta",
                 image: "products/img/product29.png",
                 rating: 4.7
             },
             {
                 id: 30,
-                name: "Örgü Saç Bandı",
-                description: "El örgüsü saç bandı. Şık tasarım.",
-                category: "Aksesuar",
+                name: "Örgü Cüzdan",
+                description: "Klasik tasarım el örgüsü cüzdan.",
+                category: "cüzdan",
                 image: "products/img/product30.png",
                 rating: 4.5
             },
@@ -714,145 +944,217 @@
                 id: 31,
                 name: "Bebek Hırka Takımı",
                 description: "El örgüsü bebek hırka ve pantolon takımı.",
-                category: "Bebek",
+                category: "bebek",
                 image: "products/img/product31.png",
                 rating: 4.9
             },
             {
                 id: 32,
-                name: "Dekoratif Vazo",
-                description: "El örgüsü vazo kılıfı. Modern tasarım.",
-                category: "Ev",
+                name: "Örgü Çanta",
+                description: "El yapımı modern örgü çanta.",
+                category: "çanta",
                 image: "products/img/product32.png",
-                rating: 4.6
+                rating: 4.7
             },
             {
                 id: 33,
-                name: "Örgü Bileklik",
-                description: "El örgüsü bileklik. Şık tasarım.",
-                category: "Aksesuar",
+                name: "Masa Örtüsü",
+                description: "Dantel detaylı el örgüsü masa örtüsü.",
+                category: "örtü",
                 image: "products/img/product33.png",
-                rating: 4.7
+                rating: 4.8
             },
             {
                 id: 34,
                 name: "Bebek Battaniye Set",
                 description: "El örgüsü battaniye ve yastık seti.",
-                category: "Bebek",
+                category: "bebek",
                 image: "products/img/product34.png",
                 rating: 4.8
             },
             {
                 id: 35,
-                name: "Dekoratif Kutu",
-                description: "El örgüsü dekoratif kutu. Modern tasarım.",
-                category: "Ev",
+                name: "Örgü Cüzdan",
+                description: "Modern tasarımlı el örgüsü cüzdan.",
+                category: "cüzdan",
                 image: "products/img/product35.png",
                 rating: 4.5
             },
             {
                 id: 36,
-                name: "Örgü Kolye",
-                description: "El örgüsü kolye. Şık tasarım.",
-                category: "Aksesuar",
+                name: "Örgü Çanta",
+                description: "El yapımı vintage stil örgü çanta.",
+                category: "çanta",
                 image: "products/img/product36.png",
-                rating: 4.6
+                rating: 4.7
             },
             {
                 id: 37,
                 name: "Bebek Uyku Tulumu",
                 description: "El örgüsü bebek uyku tulumu. Özel tasarım.",
-                category: "Bebek",
+                category: "bebek",
                 image: "products/img/product37.png",
                 rating: 4.9
             },
             {
                 id: 38,
-                name: "Dekoratif Duvar Süsü",
-                description: "El örgüsü duvar süsü. Modern tasarım.",
-                category: "Ev",
+                name: "Örgü Çanta",
+                description: "Modern desenli el örgüsü çanta.",
+                category: "çanta",
                 image: "products/img/product38.png",
                 rating: 4.7
             },
             {
                 id: 39,
-                name: "Örgü Küpe",
-                description: "El örgüsü küpe. Şık tasarım.",
-                category: "Aksesuar",
+                name: "Örgü Cüzdan",
+                description: "Şık tasarımlı el örgüsü cüzdan.",
+                category: "cüzdan",
                 image: "products/img/product39.png",
-                rating: 4.8
+                rating: 4.5
             },
             {
                 id: 40,
                 name: "Bebek Pelerin",
                 description: "El örgüsü bebek pelerini. Özel tasarım.",
-                category: "Bebek",
+                category: "bebek",
                 image: "products/img/product40.png",
-                rating: 4.6
+                rating: 4.8
             },
             {
                 id: 41,
-                name: "Dekoratif Kitap Ayracı",
-                description: "El örgüsü kitap ayracı. Modern tasarım.",
-                category: "Ev",
+                name: "Örgü Çanta",
+                description: "El yapımı modern örgü çanta.",
+                category: "çanta",
                 image: "products/img/product41.png",
-                rating: 4.5
+                rating: 4.7
             },
             {
                 id: 42,
-                name: "Örgü Broş",
-                description: "El örgüsü broş. Şık tasarım.",
-                category: "Aksesuar",
+                name: "Masa Örtüsü",
+                description: "Modern tasarımlı el örgüsü masa örtüsü.",
+                category: "örtü",
                 image: "products/img/product42.png",
-                rating: 4.7
+                rating: 4.8
             },
             {
                 id: 43,
                 name: "Bebek Ayakkabısı",
                 description: "El örgüsü bebek ayakkabısı. Özel tasarım.",
-                category: "Bebek",
+                category: "bebek",
                 image: "products/img/product43.png",
                 rating: 4.8
             },
             {
                 id: 44,
-                name: "Dekoratif Kapı Süsü",
-                description: "El örgüsü kapı süsü. Modern tasarım.",
-                category: "Ev",
+                name: "Örgü Cüzdan",
+                description: "Klasik tasarım el örgüsü cüzdan.",
+                category: "cüzdan",
                 image: "products/img/product44.png",
-                rating: 4.6
+                rating: 4.5
             },
             {
                 id: 45,
-                name: "Örgü Toka",
-                description: "El örgüsü toka. Şık tasarım.",
-                category: "Aksesuar",
+                name: "Örgü Çanta",
+                description: "El yapımı şık örgü çanta.",
+                category: "çanta",
                 image: "products/img/product45.png",
-                rating: 4.5
+                rating: 4.7
             },
             {
                 id: 46,
                 name: "Bebek Önlüğü",
                 description: "El örgüsü bebek önlüğü. Özel tasarım.",
-                category: "Bebek",
+                category: "bebek",
                 image: "products/img/product46.png",
                 rating: 4.9
             },
             {
                 id: 47,
-                name: "Dekoratif Bardak Altlığı",
-                description: "El örgüsü bardak altlığı seti. Modern tasarım.",
-                category: "Ev",
+                name: "Örgü Çanta",
+                description: "Modern desenli el örgüsü çanta.",
+                category: "çanta",
                 image: "products/img/product47.png",
                 rating: 4.7
             },
             {
                 id: 48,
-                name: "Örgü Anahtarlık",
-                description: "El örgüsü anahtarlık. Şık tasarım.",
-                category: "Aksesuar",
+                name: "Masa Örtüsü",
+                description: "Dantel detaylı el örgüsü masa örtüsü.",
+                category: "örtü",
                 image: "products/img/product48.png",
                 rating: 4.8
+            },
+            {
+                id: 49,
+                name: "Örgü Çanta",
+                description: "El yapımı vintage stil örgü çanta.",
+                category: "çanta",
+                image: "products/img/product49.png",
+                rating: 4.6
+            },
+            {
+                id: 50,
+                name: "Örgü Cüzdan",
+                description: "Modern tasarımlı el örgüsü cüzdan.",
+                category: "cüzdan",
+                image: "products/img/product50.png",
+                rating: 4.5
+            },
+            {
+                id: 51,
+                name: "Örgü Çanta",
+                description: "El yapımı şık örgü çanta.",
+                category: "çanta",
+                image: "products/img/product51.png",
+                rating: 4.7
+            },
+            {
+                id: 52,
+                name: "Masa Örtüsü",
+                description: "Modern tasarımlı el örgüsü masa örtüsü.",
+                category: "örtü",
+                image: "products/img/product52.png",
+                rating: 4.8
+            },
+            {
+                id: 53,
+                name: "Örgü Çanta",
+                description: "El yapımı vintage stil örgü çanta.",
+                category: "çanta",
+                image: "products/img/product53.png",
+                rating: 4.7
+            },
+            {
+                id: 54,
+                name: "Örgü Cüzdan",
+                description: "Şık tasarımlı el örgüsü cüzdan.",
+                category: "cüzdan",
+                image: "products/img/product54.png",
+                rating: 4.5
+            },
+            {
+                id: 55,
+                name: "Örgü Çanta",
+                description: "Modern desenli el örgüsü çanta.",
+                category: "çanta",
+                image: "products/img/product55.png",
+                rating: 4.7
+            },
+            {
+                id: 56,
+                name: "Masa Örtüsü",
+                description: "Dantel detaylı el örgüsü masa örtüsü.",
+                category: "örtü",
+                image: "products/img/product56.png",
+                rating: 4.8
+            },
+            {
+                id: 57,
+                name: "Örgü Çanta",
+                description: "El yapımı modern örgü çanta.",
+                category: "çanta",
+                image: "products/img/product57.png",
+                rating: 4.7
             }
         ];
 
@@ -871,12 +1173,38 @@
                     const clone = template.content.cloneNode(true);
                     
                     // Ürün bilgilerini doldur
-                    clone.querySelector('.product-image').src = product.image;
-                    clone.querySelector('.product-image').alt = product.name;
+                    const productImage = clone.querySelector('.product-image');
+                    productImage.src = product.image;
+                    productImage.alt = product.name;
                     clone.querySelector('.product-category').textContent = product.category;
                     clone.querySelector('.product-name').textContent = product.name;
                     clone.querySelector('.product-description').textContent = product.description;
                     clone.querySelector('.product-rating').textContent = product.rating;
+
+                    // Renk seçeneklerini ekle
+                    if (product.colors) {
+                        const colorsContainer = clone.querySelector('.product-colors');
+                        colorsContainer.classList.remove('opacity-0');
+                        
+                        product.colors.forEach(color => {
+                            const colorBtn = document.createElement('button');
+                            colorBtn.className = 'w-8 h-8 rounded-full border-2 border-white shadow-md hover:scale-110 transition-transform duration-300';
+                            colorBtn.style.backgroundImage = `url(${color.image})`;
+                            colorBtn.style.backgroundSize = 'cover';
+                            colorBtn.setAttribute('title', color.name);
+                            
+                            colorBtn.addEventListener('click', () => {
+                                productImage.src = color.image;
+                                // Aktif rengi vurgula
+                                colorsContainer.querySelectorAll('button').forEach(btn => {
+                                    btn.classList.remove('ring-2', 'ring-primary');
+                                });
+                                colorBtn.classList.add('ring-2', 'ring-primary');
+                            });
+                            
+                            colorsContainer.appendChild(colorBtn);
+                        });
+                    }
 
                     // Eğer ürün durumu varsa göster
                     if (product.status) {
@@ -887,7 +1215,6 @@
 
                     // Detay butonuna tıklama olayı
                     clone.querySelector('.view-details').addEventListener('click', () => {
-                        // Ürün detay modalını aç veya ürün detay sayfasına yönlendir
                         console.log(`Ürün detayı gösteriliyor: ${product.id}`);
                     });
 
@@ -908,6 +1235,11 @@
                 });
 
                 renderProducts(filteredProducts);
+
+                // Kategori seçildiğinde ürünler bölümüne kaydır
+                if (selectedCategory) {
+                    document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
 
             // Event listeners
@@ -1089,12 +1421,12 @@
                     <div class="flex space-x-4">
                         <a href="#" class="social-icon-wrapper w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-300 group">
                             <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                             </svg>
                         </a>
                         <a href="#" class="social-icon-wrapper w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary transition-colors duration-300 group">
                             <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.281-.073-1.689-.073-4.849 0-3.259.014-3.668.072-4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.849.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281.073 1.689.073 4.849 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.849.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 3.668-.07 4.849 0 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.281-.073-1.689-.073-4.849 0-3.259.014-3.667.072-4.947.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.849.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281.073 1.689.073 4.849 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.849.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                             </svg>
                         </a>
                     </div>
@@ -1105,5 +1437,86 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <div class="flex justify-between items-center mb-8">
+            <img src="images/logo.png" alt="Emilish Logo" class="h-12">
+            <button class="mobile-menu-close">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="space-y-4">
+            <a href="#home" class="block text-lg font-medium text-gray-700 hover:text-primary transition-colors duration-300">Ana Sayfa</a>
+            <div class="mobile-dropdown">
+                <button class="flex items-center justify-between w-full text-lg font-medium text-gray-700 hover:text-primary transition-colors duration-300">
+                    Ürünler
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="mobile-dropdown-content hidden pl-4 mt-2 space-y-2">
+                    <a href="#products" onclick="filterCategory('çanta')" class="block text-gray-600 hover:text-primary transition-colors duration-300">Çanta</a>
+                    <a href="#products" onclick="filterCategory('cüzdan')" class="block text-gray-600 hover:text-primary transition-colors duration-300">Cüzdan</a>
+                    <a href="#products" onclick="filterCategory('örtü')" class="block text-gray-600 hover:text-primary transition-colors duration-300">Masa-Sehpa Örtüleri</a>
+                    <a href="#products" onclick="filterCategory('bebek')" class="block text-gray-600 hover:text-primary transition-colors duration-300">Bebekler için</a>
+                </div>
+            </div>
+            <a href="#about" class="block text-lg font-medium text-gray-700 hover:text-primary transition-colors duration-300">Hakkımızda</a>
+            <a href="#contact" class="block text-lg font-medium text-gray-700 hover:text-primary transition-colors duration-300">İletişim</a>
+        </nav>
+    </div>
+
+    <script>
+        // Mevcut script
+        // ... existing code ...
+
+        // Mobil Menü Fonksiyonları
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.md\\:hidden');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
+            const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+
+            function toggleMobileMenu() {
+                mobileMenu.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            }
+
+            mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            mobileMenuClose.addEventListener('click', toggleMobileMenu);
+            mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+
+            mobileDropdowns.forEach(dropdown => {
+                const button = dropdown.querySelector('button');
+                const content = dropdown.querySelector('.mobile-dropdown-content');
+
+                button.addEventListener('click', () => {
+                    content.classList.toggle('hidden');
+                    const icon = button.querySelector('svg');
+                    icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                });
+            });
+
+            // Mobil menüdeki linklere tıklandığında menüyü kapat
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    toggleMobileMenu();
+                });
+            });
+        });
+
+        // Kategori filtreleme fonksiyonu
+        function filterCategory(category) {
+            document.getElementById('categoryFilter').value = category;
+            filterProducts();
+        }
+    </script>
 </body>
 </html> 
