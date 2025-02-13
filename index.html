@@ -439,6 +439,37 @@
 
         /* Mobil Responsive İyileştirmeleri */
         @media (max-width: 768px) {
+            /* Logo için mobil düzenlemeler */
+            .w-48 {
+                width: auto;
+                max-width: 160px;
+            }
+
+            .h-16 {
+                height: 2.5rem; /* 40px */
+            }
+
+            /* Mobil menüdeki logo */
+            .mobile-menu img {
+                height: 2.5rem; /* 40px */
+                width: auto;
+                max-width: 140px;
+            }
+
+            /* Footer'daki logo */
+            .footer-gradient img {
+                height: 2.5rem; /* 40px */
+                width: auto;
+                max-width: 140px;
+                margin: 0 auto;
+            }
+
+            /* Navbar padding ve margin düzenlemesi */
+            .py-3 {
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+
             .hero-title {
                 font-size: 2.5rem;
                 line-height: 1.2;
@@ -552,7 +583,7 @@
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <div class="w-48">
-                    <img src="images/logo.png" alt="Emilish Logo" class="h-16 object-contain">
+                    <img src="images/Logo.png" alt="Emilish Logo" class="h-16 object-contain">
                 </div>
                 <div class="hidden md:flex items-center space-x-12">
                     <a href="#home" class="nav-link relative text-gray-700 hover:text-primary text-lg font-medium transition-all duration-300 hover:scale-110 px-2 py-1 after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-300 after:to-primary after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full before:content-['🌸'] before:absolute before:-top-4 before:left-1/2 before:transform before:-translate-x-1/2 before:opacity-0 hover:before:opacity-100 before:transition-all before:duration-300">Ana Sayfa</a>
@@ -1381,7 +1412,7 @@
         <div class="container mx-auto px-4 relative z-10">
             <div class="grid md:grid-cols-4 gap-12">
                 <div class="space-y-4">
-                    <img src="images/logo.png" alt="Emilish Logo" class="h-16 brightness-0 invert">
+                    <img src="images/Logo.png" alt="Emilish Logo" class="h-16 object-contain brightness-0 invert">
                     <p class="text-gray-200">El emeği ile üretilen örgü ürünleri.</p>
                 </div>
                 <div>
@@ -1442,7 +1473,7 @@
     <div class="mobile-menu-overlay"></div>
     <div class="mobile-menu">
         <div class="flex justify-between items-center mb-8">
-            <img src="images/logo.png" alt="Emilish Logo" class="h-12">
+            <img src="images/Logo.png" alt="Emilish Logo" class="h-12 object-contain">
             <button class="mobile-menu-close">
                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
